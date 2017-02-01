@@ -1,0 +1,24 @@
+{
+    "name": "push-ad/push-ad-php-lib",
+    "type": "library",
+    "description": "SDK for connecting with push-ad API",
+    "keywords": ["push-ad","sdk"],
+    "homepage": "https://github.com/push-ad/push-ad-php-lib",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Push-Ad",
+            "email": "developers@push-ad.com",
+            "homepage": "https://api.push-ad.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "PushAd\\": "src/PushAd"
+        }
+    }
+}
