@@ -4,7 +4,21 @@ namespace PushAd\Model\Request;
 
 
 abstract class Request {
+    
+    protected $language;
+    
+    public function __construct($language) {
+        $this->language = strtoupper($language);
+    }
+    
+    /**
+     * @return \string
+     */
+    public function getLanguage() {
+        return $this->language;
+    }
 
+    
     abstract public function getApiAction();
     
     abstract public function getRequestNamespace();
@@ -17,6 +31,7 @@ abstract class Request {
         return [
             'namespace' => $this->getRequestNamespace(),
             'method' => $this->getApiAction(),
+            'language' => $this->getLanguage(),
         ];
     }
     
