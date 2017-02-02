@@ -1,6 +1,6 @@
 <?php
 
-namespace PushAd\Exception;
+namespace PushAd\Model\Exception;
 
 /**
  * Basic exception thrown by API

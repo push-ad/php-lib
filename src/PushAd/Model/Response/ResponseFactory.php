@@ -23,9 +23,19 @@ class ResponseFactory {
         return self::$instance;
     }
     
-    public function getResponse(array $data){
+    public function getResponse($data, \PushAd\Model\Request\Request $request){
+        $responseClass = '\PushAd\Model\Response\\'.$request->getResponseClassName();
+        /* @var $response Response */
+        $response = new $responseClass();
+        $response->setStatus($data['status_code']);
+        $response->setSuccess($data['success']);
+        $response->setBody($data['body']);
+        if(array_key_exists('info', $data)){
+            $response->setInfo($data['info']);
+        }
+        $response->parseBody();
         
-        
+        return $response;
     }
     
 }

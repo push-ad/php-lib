@@ -50,6 +50,7 @@ abstract class Response {
         return $this;
     }
 
+    abstract public function parseBody();
 
     
 }

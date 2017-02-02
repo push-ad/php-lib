@@ -48,7 +48,7 @@ class CreateAccountRequest extends Request{
     protected $phone;
     
     public function getApiAction() {
-        return 'createaccount';
+        return 'create';
     }
 
     public function getRequestNamespace() {
@@ -128,12 +128,16 @@ class CreateAccountRequest extends Request{
         $data['phone'] = $this->getPhone();
         $data['password'] = $this->getPassword();
         $data['email'] = $this->getEmail();
-        $data['company_name'] = $this->getCompanyName();
+        $data['company'] = $this->getCompanyName();
         $data['https'] = $this->getHttps();
         $data['site_url'] = $this->getSiteUrl();
         $data['registration_url'] = $this->getRegistrationUrl();
         
         return $data;
+    }
+
+    public function getResponseClassName() {
+        return 'CreateAccountResponse';
     }
 
 }

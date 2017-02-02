@@ -1,5 +1,5 @@
 <?php
-namespace PushAd\Http;
+namespace PushAd\Model\Http;
 
 class Curl
 {
@@ -44,7 +44,7 @@ class Curl
         }
 
         if (0 !== $errno) {
-            throw new \PushAd\Exception\ApiException($error, $errno);
+            throw new \PushAd\Model\Exception\ApiException($error, $errno);
         }
 
         return $this->response = $response;

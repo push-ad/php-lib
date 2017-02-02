@@ -20,18 +20,18 @@ class Api {
      * @return \PushAd\Model\Response\Response
      */
     public function query(Request\Request $request){
-        $curl = new \PushAd\Http\Curl($this->config->getApiFullUrl(), $this->getPostAdditionalParams($request));
+        //$curl = new \PushAd\Model\Http\Curl($this->config->getApiFullUrl(), $this->getPostAdditionalParams($request));
+        $curl = new \PushAd\Model\Http\Curl('http://dev.pushad.pl/shoper/mirror.php', $this->getPostAdditionalParams($request));
         
         $responseContent = $curl->getResponse();
-        
-        $responseData = json_decode($responseContent);
-        
+        $responseData = json_decode($responseContent, true);
+
         if(!is_array($responseData)){
-            throw new \PushAd\Exception\ApiException("Error decoding response from API");
+            throw new \PushAd\Model\Exception\ApiException("Error decoding response from API");
         }
         
         $responseFactory = Response\ResponseFactory::getInstance();
-        $response = $responseFactory->getResponse($responseData);
+        $response = $responseFactory->getResponse($responseData, $request);
         return $response;
     }
     
@@ -43,10 +43,13 @@ class Api {
      */
     protected function getPostAdditionalParams(Request\Request $request){
         return [
-            'CURLOPT_HTTPHEADER' => [
-                'Authorization' => $this->config->getApiKey(),
-                'Content-Type' => 'application/json'
-            ]
+            CURLOPT_HTTPHEADER => [
+                'Authorization: '.$this->config->getApiKey(),
+                'Content-Type: application/json',
+                'Content-Length: '.strlen($request->getRequestJson()),
+            ],
+            CURLOPT_POST => 1,
+            CURLOPT_POSTFIELDS => $request->getRequestJson(),
         ];
     }
 

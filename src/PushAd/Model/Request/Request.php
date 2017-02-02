@@ -27,6 +27,8 @@ abstract class Request {
     
     abstract protected function prepareRequestContent(array $data);
     
+    abstract public function getResponseClassName();
+    
     protected function prepareRequestMeta(){
         return [
             'namespace' => $this->getRequestNamespace(),
