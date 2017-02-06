@@ -20,8 +20,7 @@ class Api {
      * @return \PushAd\Model\Response\Response
      */
     public function query(Request\Request $request){
-        //$curl = new \PushAd\Model\Http\Curl($this->config->getApiFullUrl(), $this->getPostAdditionalParams($request));
-        $curl = new \PushAd\Model\Http\Curl('http://dev.pushad.pl/shoper/mirror.php', $this->getPostAdditionalParams($request));
+        $curl = new \PushAd\Model\Http\Curl($this->config->getApiFullUrl(), $this->getPostAdditionalParams($request));
         
         $responseContent = $curl->getResponse();
         $responseData = json_decode($responseContent, true);
