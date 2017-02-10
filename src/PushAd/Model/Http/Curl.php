@@ -20,7 +20,7 @@ class Curl
         foreach ($options as $key => $val) {
             curl_setopt($this->ch, $key, $val);
         }
-
+        curl_setopt($this->ch, CURLOPT_FOLLOWLOCATION, 1);
         curl_setopt($this->ch, CURLOPT_RETURNTRANSFER, true);
     }
 
