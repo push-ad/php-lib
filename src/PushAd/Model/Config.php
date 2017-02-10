@@ -8,9 +8,7 @@ namespace PushAd\Model;
 class Config {
     
     protected $apiKey;
-    
-    protected $notificationKey;
-    
+        
     protected $apiVersion;
     
     protected $apiUrl;
@@ -18,18 +16,15 @@ class Config {
     /**
      * 
      * @param string $apiKey Authorization key
-     * @param string $notificationKey Key for sending notifications
      * @param string $apiVersion used version of API
      * @param string $apiUrl Target API url
      */
     public function __construct(
             $apiKey, 
-            $notificationKey, 
             $apiVersion, 
             $apiUrl
         ) {
         $this->apiKey = $apiKey;
-        $this->notificationKey = $notificationKey;
         $this->apiVersion = $apiVersion;
         $this->apiUrl = $apiUrl;
     }
@@ -38,9 +33,6 @@ class Config {
         return $this->apiKey;
     }
 
-    public function getNotificationKey() {
-        return $this->notificationKey;
-    }
 
     public function getApiVersion() {
         return $this->apiVersion;
