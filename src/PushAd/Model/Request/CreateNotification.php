@@ -134,7 +134,7 @@ class CreateNotification extends Request{
         return $this->includePlayerIds;
     }
 
-    public function setIncludePlayerIds($includePlayerIds) {
+    public function setIncludePlayerIds(array $includePlayerIds) {
         $this->includePlayerIds = $includePlayerIds;
         return $this;
     }
