@@ -3,9 +3,7 @@
 namespace PushAd\Model\Request;
 
 /**
- * Description of CreateNotification
- *
- * @author emilswiderek
+ * Request for sending/(creating pending) notification
  */
 class CreateNotification extends Request{
     
