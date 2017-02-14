@@ -54,6 +54,8 @@ class CreateNotification extends Request{
         $data['firefox_web_icon'] = $this->getFirefoxWebIcon();
         $data['include_player_ids'] = $this->getIncludePlayerIds();
         $data['url'] = $this->getUrl();
+        
+        return $data;
     }
 
     public function getApiAction() {
@@ -120,10 +122,12 @@ class CreateNotification extends Request{
     
     public function addHeadings($lang, $content){
         $this->headings[$lang] = $content;
+        return $this;
     }
     
     public function addContent($lang, $content){
         $this->contents[$lang] = $content;
+        return $this;
     }
     
     public function getIncludePlayerIds() {
