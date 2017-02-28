@@ -111,6 +111,7 @@ class CreateSubProjectRequest extends Request{
         $data['subproject_image_url'] = $this->getSubProjectImageUrl();
         $data['welcome_title'] = $this->getWelcomeTitle();
         $data['welcome_body'] = $this->getWelcomeBody();
+        $data['parent_id'] = $this->getParentId();
         $data['welcome_image_url'] = $this->getWelcomeImageUrl();
         return $data;
     }
