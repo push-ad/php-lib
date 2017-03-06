@@ -99,8 +99,15 @@ class CreateSubProjectRequest extends Request{
 
             
     public function isValid() {
+        if(empty($this->getSubProjectName())
+            || empty($this->getSubProjectProjectUrl())
+            || empty($this->getSubProjectImageUrl())
+            || empty($this->getWelcomeTitle()
+            || empty($this->getWelcomeBody()))
+            || empty($this->getWelcomeImageUrl())){
+            return false;
+        }
         
-        // @todo validate
         return true;
     }
 

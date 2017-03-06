@@ -69,6 +69,10 @@ class CreateNotification extends Request{
     }
 
     public function isValid() {
+        if(empty($this->getIncludePlayerIds())){
+            return false;
+        }
+        
         return true;
     }
 

@@ -21,8 +21,10 @@ class CreateProjectRequest extends Request{
 
         
     public function isValid() {
+        if(empty($this->getProjectName())){
+            return false;
+        }
         
-        // @todo validate
         return true;
     }
 

@@ -8,6 +8,9 @@ namespace PushAd\Model\Request;
  */
 class CreateAccountRequest extends Request{
     
+    
+    CONST PASSWORD_MIN_LENGHT = 8;
+    
     /**
      * @var \string
      */
@@ -119,8 +122,22 @@ class CreateAccountRequest extends Request{
     }
 
     public function isValid() {
+        if(!filter_var($this->getEmail(), FILTER_VALIDATE_EMAIL)){
+            return false;
+        }
         
-        // @todo validate
+        if(strlen($this->getPassword()) < self::PASSWORD_MIN_LENGHT){
+            return false;
+        }
+        
+        if(empty($this->getCompanyName())){
+            return false;
+        }
+        
+        if(empty($this->getSiteUrl())){
+            return false;
+        }
+        
         return true;
     }
 
