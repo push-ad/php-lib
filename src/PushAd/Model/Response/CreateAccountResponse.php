@@ -11,6 +11,8 @@ class CreateAccountResponse extends Response{
     
     protected $companyId;
     
+    protected $loginKey;
+
     public function parseBody() {
         $body = $this->getBody();
         if(array_key_exists('user', $body)){
@@ -19,6 +21,10 @@ class CreateAccountResponse extends Response{
         
         if(array_key_exists('company_id', $body)){
             $this->setCompanyId($body['company_id']);
+        }
+        
+        if(array_key_exists('login_key', $body)){
+            $this->setLoginKey($body['login_key']);
         }
     }
     
@@ -39,5 +45,14 @@ class CreateAccountResponse extends Response{
         $this->companyId = $companyId;
         return $this;
     }
+
+    function getLoginKey() {
+        return $this->loginKey;
+    }
+
+    function setLoginKey($loginKey) {
+        $this->loginKey = $loginKey;
+    }
+
 
 }
