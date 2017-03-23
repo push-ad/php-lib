@@ -13,8 +13,6 @@ class CreateProjectResponse extends Response{
         $body = $this->getBody();
         if(array_key_exists('company_id', $body)){
             $this->setPushadId($body['company_id']);
-        }else {
-            throw new \PushAd\Model\Exception\ApiException("Invalid response, no project id provided!");
         }
         
     }

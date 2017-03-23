@@ -15,15 +15,11 @@ class CreateSubProjectResponse extends Response{
         $body = $this->getBody();
         if(array_key_exists('subproject_id', $body)){
             $this->setPushadId($body['subproject_id']);
-        } else {
-            throw new \PushAd\Model\Exception\ApiException("Invalid response, no subproject ID provided!");
-        }
+        } 
         
         if(array_key_exists('api_key', $body)){
             $this->setApiKey($body['api_key']);
-        } else {
-            throw new \PushAd\Model\Exception\ApiException("Invalid response, no API key provided!");
-        }
+        } 
         
         
     }
